@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+   <title>Wizard's interface for <%= params["session_name"] %></title>
+   
+   <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+   <script type="text/javascript">
+     var chatFlashVars = {
+        session_name: "<%= params["session_name"] %>"
+       };
+       var photoViewerFlashVars = {
+        user_or_wizard: "<%= params["user_or_wizard"] %>",
+        session_name: "<%= params["session_name"] %>"
+       };
+     var params = {
+        allowFullScreen: "true",
+        allowScriptAccess: "sameDomain"
+     };
+   
+    swfobject.embedSWF("<%= params["chat_swf_path"] %>", "chat_swf", "100%", "250", "10.0.0", "playerProductInstall.swf", chatFlashVars, params);
+    
+    swfobject.embedSWF("<%= params["photo_viewer_swf_path"] %>", "photo_viewer_swf", "100%", "500", "10.0.0", "playerProductInstall.swf", photoViewerFlashVars, params);
+    
+   </script>
+</head>
+
+<body>
+
+    <div id="chat_swf">
+      <p>The wizard's interface has failed to load!</p>
+    </div>
+    
+    <div id="photo_viewer_swf" style="margin-left: auto; margin-right: auto;">
+      <p>The photo viwer has failed to load! photo_viewer_swf_path is <%= params["photo_viwer_swf_path"] %></p>
+    </div>
+    
+</body>
+</html>
+

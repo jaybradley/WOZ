@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+     <title>User interface for <%= params["session_name"] %></title>
+
+     
+     <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+     <script type="text/javascript">
+       var chatFlashVars = {
+        session_name: "<%= params["session_name"] %>"
+       };
+       var photoViewerFlashVars = {
+        user_or_wizard: "<%= params["user_or_wizard"] %>",
+        session_name: "<%= params["session_name"] %>"
+       };
+       var params = {
+          allowFullScreen: "true",
+          allowScriptAccess: "sameDomain"
+       };
+     
+      swfobject.embedSWF("<%= params["chat_swf_path"] %>", "chat_swf", "500", "300", "10.0.0", "playerProductInstall.swf", chatFlashVars, params);
+      swfobject.embedSWF("<%= params["photo_viewer_swf_path"] %>", "photo_viewer_swf", "100%", "100%", "10.0.0", "playerProductInstall.swf", photoViewerFlashVars, params);
+     </script>
+  </head>
+
+  <body bgcolor="#ffffff">
+
+    <div style="float: left; width: 250; margin-top: 1%; margin-bottom: 1%;">
+      <object id="CrazyTalkPlayer" classid = "CLSID:13149882-f480-4f6b-8c6a-0764f75b99ed"
+             codebase="http://plug-in.reallusion.com/CrazyTalk4.cab#version=4,5,615,1"
+          width=500
+          height=600>
+        <PARAM Name="BackColor" value="0Xffffff">
+        <PARAM Name='ControlStyle' Value="0">
+        <PARAM Name='BorderStyle' Value="0">
+        <PARAM Name='MenuStyle' Value="-1">
+        <PARAM Name='LifeMode' Value="1">
+        <PARAM Name='StretchMode' Value="1">
+        <PARAM Name='ModelName' Value="<%= params["ctm_path"] %>">
+        <PARAM Name='ScriptName' Value="">
+      </object>
+      
+      <object classid="clsid:B7A59580-B39D-4BF9-B968-1BFA25156691"
+           id="TTSPlayer" codebase="http://www.reallusion.com/plug-in/rltts.cab#version=1,0,1409,1"
+                width="500" height="20">
+        <param name="_Version" value="65536">
+        <param name="_ExtentX" value="2646">
+        <param name="_ExtentY" value="1323">
+        <param name="_StockProps" value="-1">
+        <param name="BackColor" value="0xffffff">
+        <param name="ShowControl" value="0">
+        <param name="ForeColor" value="616777215">
+        <param name="TTSEngine" value="Microsoft SAPI 5.0">
+        <param name="FontName" value="Arial">
+        <param name="FontSize" value="14">
+        <param name="FontStyle" value="0">
+        <param name="Speed" value="50">
+        <param name="Pitch" value="50">
+        <param name="Volume" value="100">
+        <param name="AutoLoop" value="0">
+        <param name="AutoPlay" value="0">
+        <param name="TextContent" value="Hello, nice to meet you.">
+      </object>
+
+<div id="chat_swf" style="width: 250; margin-top: 1%; margin-bottom: 1%;">
+      <p>The user interface has failed to load! chat_swf_path is <%= params["chat_swf_path"] %></p>
+    </div>
+
+    </div>
+
+
+    <Script language="javascript">
+      TTSPlayer.AttachCtrl(CrazyTalkPlayer);
+      function play(str){
+	      document.TTSPlayer.TextContent=str;
+	      document.TTSPlayer.Play();
+      }
+
+      function stop(){
+	      document.TTSPlayer.Stop();
+      }
+    </Script>
+
+    
+
+    <div id="photo_viewer_swf" style="width: 250;">
+      <p>The photo viewer has failed to load! photo_viewer_swf_path is <%= params["photo_viwer_swf_path"] %></p>
+    </div>
+
+    
+    
+  </body>
+</html>
+
