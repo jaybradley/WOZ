@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<local:PhotoPalPhotoViewerApplication
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:local="*"
+	layout="absolute"
+	backgroundGradientColors="[#FFFFFF, #FFFFFF]"
+	width="760"
+	height="500"
+	initialize="systemManager.stage.scaleMode=StageScaleMode.SHOW_ALL">
+
+	<!--see http://blogs.adobe.com/aharui/2008/01/flex_and_scalemodes.html for a description of scale modes with flex-->
+
+
+
+	
+</local:PhotoPalPhotoViewerApplication>

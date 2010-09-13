@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<local:PhotoPalWizardOfOzUserInterfaceApplication	
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:local="*"	
+	layout="vertical"
+	width="500"
+	height="300"
+	paddingTop="0"
+	paddingBottom="0"
+	paddingLeft="5"
+	paddingRight="0"
+	backgroundColor="white"
+	fontSize="14">
+	
+	<mx:Style>
+        .chatHistoryStyle {
+        	up-arrow-skin: ClassReference(null);
+		 	down-arrow-skin: ClassReference(null);
+		 	highlightAlphas: 255, 255;
+			fillColors: #eeeeee, #dddddd;
+			trackColors: #eeeeee, #dddddd;
+		 	themeColor: #eeeeee;
+		 	borderColor: #bbbbbb;
+        }
+    </mx:Style>
+
+	<mx:List id="chatHistory" verticalScrollBarStyleName="chatHistoryStyle" color="0x050505" borderThickness="0" width="490" height="290" backgroundColor="0xffffff" alternatingItemColors="[#efefef, #ececec]" variableRowHeight="true" wordWrap="true" selectable="true" editable="false"/>
+
+</local:PhotoPalWizardOfOzUserInterfaceApplication>
